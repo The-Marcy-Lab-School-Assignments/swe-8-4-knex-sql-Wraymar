@@ -1,59 +1,61 @@
-const knex = require('./knex');
+const knex = require("./knex");
 
 const countNumberOfBooks = async () => {
-  const query = ``;
+  const query = `SELECT COUNT(*) FROM books;`;
 
-  // const { rows } = await knex.raw(query);
-  // console.log('Number of books:', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("Number of books:", rows);
+  return rows;
 };
 
 const selectAllLongOrMovieBooks = async () => {
-  const query = ``;
+  const query = `SELECT * FROM books WHERE pages >= 250 OR is_Movie = true;`;
 
-  // const { rows } = await knex.raw(query);
-  // console.log('Long or movie books:', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("Long or movie books:", rows);
+  return rows;
 };
 
 const selectBooksBetween150And300Pages = async () => {
-  const query = ``;
+  const query = `SELECT * FROM books WHERE pages BETWEEN 150 AND 300`;
 
-  // const { rows } = await knex.raw(query);
-  // console.log('150-300:', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("150-300:", rows);
+  return rows;
 };
 
 const orderBooksByPages = async () => {
-  const query = ``;
+  const query = `SELECT * FROM books ORDER BY pages`;
 
-  // const { rows } = await knex.raw(query);
-  // console.log('Short to long:', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("Short to long:", rows);
+  return rows;
 };
 
 const selectLongestBook = async () => {
-  const query = ``;
+  const query = `SELECT * FROM books ORDER BY pages DESC LIMIT 1`;
+  //we can also do:
+  //const query = `SELECT * FROM books ORDER BY pages DESC` return rows[0];
 
-  // const { rows } = await knex.raw(query);
-  // console.log('Longest Book:', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("Longest Book:", rows);
+  return rows;
 };
 
 const aliasIsMovie = async () => {
-  const query = ``;
+  const query = `SELECT title, is_movie AS "Already Filmed" FROM books;`;
 
-  // const { rows } = await knex.raw(query);
-  // console.log('Fancy output', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("Fancy output", rows);
+  return rows;
 };
 
 const countBooksInGenres = async () => {
-  const query = ``;
+  const query = `SELECT genre, COUNT(*) FROM books GROUP BY genre ORDER BY count DESC;`;
 
-  // const { rows } = await knex.raw(query);
-  // console.log('Genre count', rows);
-  // return rows;
+  const { rows } = await knex.raw(query);
+  console.log("Genre count", rows);
+  return rows;
 };
 
 module.exports = {
