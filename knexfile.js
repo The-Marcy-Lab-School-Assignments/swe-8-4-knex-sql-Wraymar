@@ -1,26 +1,26 @@
-require('dotenv').config();
+require("dotenv").config();
 
 module.exports = {
   development: {
-    client: 'pg',
+    client: "pg",
     connection: {
       connectionString: process.env.PG_CONNECTION_STRING,
       // ssl: { rejectUnauthorized: false },
-      host: process.env.PG_HOST || '127.0.0.1',
+      host: process.env.PG_HOST || "127.0.0.1",
       port: process.env.PG_PORT || 5432,
-      user: process.env.PG_USER || 'postgres',
-      password: process.env.PG_PASSWORD || 'postgres',
-      database: process.env.PG_DATABASE || 'postgres',
+      user: process.env.PG_USER || "postgres",
+      password: process.env.PG_PASSWORD || "postgres",
+      database: process.env.PG_DATABASE || "sql_practice",
     },
   },
   test: {
-    client: 'pg',
+    client: "pg",
     connection: {
-      host: process.env.PG_HOST || '127.0.0.1',
+      host: process.env.PG_HOST || "127.0.0.1",
       port: process.env.PG_PORT || 5432,
-      user: process.env.PG_USER || 'postgres',
-      password: process.env.PG_PASSWORD || 'postgres',
-      database: process.env.PG_DATABASE || 'postgres',
+      user: process.env.PG_USER || "postgres",
+      password: process.env.PG_PASSWORD || "postgres",
+      database: process.env.PG_DATABASE || "postgres",
     },
   },
 };

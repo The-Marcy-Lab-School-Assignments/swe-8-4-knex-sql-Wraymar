@@ -3,7 +3,7 @@ const {
   truncate,
   closeConnection,
   insertMultipleBooks,
-} = require('./starter-queries');
+} = require("./starter-queries");
 
 const {
   selectAllBooks,
@@ -12,14 +12,13 @@ const {
   insertDuneBook,
   updateShortBooksToMovies,
   deleteDuneBook,
-} = require('./basic-queries');
+} = require("./basic-queries");
 
 const main = async () => {
   // ---- DO NOT DELETE ----
   // Setup the tables and insert the books
-  await createTable().catch(() => 'Table created');
+  await createTable().catch(() => "Table created");
   await insertMultipleBooks();
-
 
   // ---- YOUR WORK ----
   // Core queries, get these first
@@ -31,8 +30,8 @@ const main = async () => {
   const deleted = await deleteDuneBook();
 
   // Test your functions by console logging the returned value.
-  console.log('All Books:', allBooks);
-
+  console.log("All Books:", allBooks);
+  console.log("Titles and Genre:", allTitlesAndGenres);
 
   // ---- DO NOT DELETE ----
   // We remove the table rows (not the table) so we can run the queries again
